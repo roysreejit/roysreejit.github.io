@@ -48,6 +48,16 @@
   --text: #ddede6;
   --accent: #a3c8b4;
 }
+[data-theme-set="rose"][data-theme="light"] {
+  --bg: #fef9f5;
+  --text: #3d3b38;
+  --accent: #a66f5b;
+}
+[data-theme-set="rose"][data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --accent: #e0b090;
+}
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -83,4 +93,14 @@ a:hover {
   <p>You’ve wandered off the data trail. This page doesn’t exist.</p>
   <a href="/">← Back to homepage</a>
 </body>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+  const savedSet = localStorage.getItem("themeSet");
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+  const initialSet = savedSet || "rose";
+
+  document.documentElement.setAttribute("data-theme", initialTheme);
+  document.documentElement.setAttribute("data-theme-set", initialSet);
+</script>
 </html>
