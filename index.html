@@ -463,8 +463,12 @@
 
   <script>
     const themeSets = ["rose", "teal", "lavender", "mint"];
-    const pickedSet = themeSets[Math.floor(Math.random() * themeSets.length)];
+    const savedSet = localStorage.getItem("themeSet");
+    const pickedSet = savedSet || themeSets[Math.floor(Math.random() * themeSets.length)];
     document.documentElement.setAttribute("data-theme-set", pickedSet);
+    if (!savedSet) {
+      localStorage.setItem("themeSet", pickedSet);
+    }
 
     const themeIcon = document.getElementById("theme-icon");
     const darkIcons = ["🌞", "🕊️", "🌼", "📖", "☕", "🧺", "🪷", "🌤"];
