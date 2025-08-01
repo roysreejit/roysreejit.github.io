@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sreejit Roy | Academic Homepage</title>
+
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Academic homepage of Sreejit Roy, Ph.D. student in Statistics at Iowa State University. Research interests include high-dimensional statistics, matrix estimation, and Bayesian methods.">
+  <meta name="author" content="Sreejit Roy">
+  <meta name="keywords" content="Sreejit Roy, statistics, ISU, matrix estimation, random matrix theory, Bayesian, PhD, ISI, Xavier's, high-dimensional statistics">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sreejit Roy | Academic Homepage">
+  <meta property="og:description" content="Ph.D. student in Statistics at Iowa State University.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://roysreejit.github.io">
+  <meta property="og:image" content="https://roysreejit.github.io/profile.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    :root {
+      --bg: #fef9f5;
+      --text: #3d3b38;
+      --section: #fdf6f0;
+      --accent: #a66f5b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1e1e1e;
+        --text: #eee;
+        --section: #2a2a2a;
+        --accent: #e0b090;
+      }
+    }
+    [data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #eee;
+      --section: #2a2a2a;
+      --accent: #e0b090;
+    }
+    [data-theme="light"] {
+      --bg: #fef9f5;
+      --text: #3d3b38;
+      --section: #fdf6f0;
+      --accent: #a66f5b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .theme-toggle-icon {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    p.subtitle {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    nav {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 720px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: var(--section);
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 1.4rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+    .edu-entry {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .edu-left {
+      font-size: 1rem;
+      line-height: 1.5;
+      max-width: 70%;
+    }
+    .edu-right {
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-align: right;
+      min-width: 25%;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle-icon" onclick="toggleTheme()" id="theme-icon">🌙</button>
+
+  <header>
+    <img src="profile.jpg" alt="Sreejit Roy" class="profile-pic" />
+    <h1>Sreejit Roy</h1>
+    <p class="subtitle">Ph.D. Student in Statistics, Iowa State University</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#awards">Awards</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a first-year Ph.D. student in Statistics at Iowa State University. I completed my M.Stat. from the Indian Statistical Institute and my B.Sc. in Statistics from St. Xavier’s College, Kolkata. My research focuses on high-dimensional statistics and related modern theoretical areas.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education & Employment</h2>
+      <div class="edu-entry">
+        <div class="edu-left">
+          <strong>Ph.D. in Statistics</strong><br>
+          Iowa State University, USA<br>
+          <em>Graduate Research Assistant</em>
+        </div>
+        <div class="edu-right">Aug 2025 – Present</div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-left">
+          <strong>Business Analyst</strong><br>
+          Standard Chartered, Bangalore
+        </div>
+        <div class="edu-right">July 2023 – July 2025</div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-left">
+          <strong>M.Stat. (Master of Statistics)</strong><br>
+          Indian Statistical Institute, Kolkata
+        </div>
+        <div class="edu-right">2021 – 2023</div>
+      </div>
+      <div class="edu-entry">
+        <div class="edu-left">
+          <strong>B.Sc. in Statistics</strong><br>
+          St. Xavier’s College, Kolkata
+        </div>
+        <div class="edu-right">2017 – 2020</div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>High-dimensional statistics</li>
+        <li>Matrix estimation</li>
+        <li>Random matrix theory</li>
+        <li>Bayesian methods</li>
+        <li>Extreme value theory</li>
+        <li>Optimisation techniques</li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>Awards</h2>
+      <ul>
+        <li><strong>Sabyasachi Roy Memorial Gold Medal</strong> — awarded for the best project work during M.Stat. at the Indian Statistical Institute, 2023.</li>
+      </ul>
+    </section>
+
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+      <p>You can download my CV here:</p>
+      <p><a href="cv.pdf" target="_blank" rel="noopener noreferrer">📄 View CV (PDF)</a></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <span id="email" title="Click to email me"></span></p>
+      <p>
+        <!-- <a href="https://scholar.google.com" target="_blank">Google Scholar</a> | -->
+        <a href="https://github.com/roysreejit" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/roysreejit" target="_blank">LinkedIn</a>
+      </p>
+    </section>
+
+    <section id="music">
+      <h2>Get to know me</h2>
+      <p>Here’s a playlist I often return to:</p>
+      <iframe style="border-radius:12px" 
+              src="https://open.spotify.com/embed/playlist/2cbOGb8YyxFZn4nPbcoywK?utm_source=generator"
+              width="100%" height="152" frameBorder="0" allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 roysreejit &nbsp;|&nbsp; Last updated: <span id="last-updated"></span>
+  </footer>
+
+  <script>
+    const themeIcon = document.getElementById("theme-icon");
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "dark") {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        themeIcon.textContent = "🌙";
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        themeIcon.textContent = "🌞";
+      }
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    themeIcon.textContent = initialTheme === "dark" ? "🌞" : "🌙";
+
+    // Email obfuscation
+    const reversed = "ude.etatsai@tijeers";
+    const email = reversed.split("").reverse().join("");
+    document.getElementById("email").innerHTML =
+      '<a href="mailto:' + email + '" title="Click to email me">' + email + '</a>';
+
+    // Last updated
+    const updated = new Date(document.lastModified);
+    const options = { year: 'numeric', month: 'long' };
+    document.getElementById("last-updated").textContent =
+      updated.toLocaleDateString('en-US', options);
+  </script>
+</body>
+</html>
