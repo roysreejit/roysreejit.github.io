@@ -20,10 +20,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
-    .random-number-icon {
+    .interest-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .interest-box {
+      background-color: rgba(166, 111, 91, 0.08);
+      color: var(--accent);
+      padding: 0.45rem 0.9rem;
+      border: 1px solid rgba(166, 111, 91, 0.15);
+      border-radius: 1.5rem;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .interest-box:hover {
+      transform: scale(1.05);
+    }
+    .theme-set-icon {
       position: fixed;
       top: 1rem;
       right: 3.5rem;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .theme-set-icon.spin {
+      animation: spinIcon 0.6s ease;
+    }
+    .random-number-icon {
+      position: fixed;
+      top: 1rem;
+      right: 6rem;
       font-size: 1.2rem;
       background: none;
       border: none;
@@ -32,7 +66,6 @@
       font-family: 'Roboto Mono', monospace;
       transition: transform 0.4s ease, opacity 0.4s ease;
     }
-
     .random-number-icon.animate {
       opacity: 0;
       transform: scale(0.8);
@@ -62,10 +95,10 @@
       scroll-behavior: smooth;
     }
     :root {
-      --bg: #fef9f5;
-      --text: #3d3b38;
-      --section: #fdf6f0;
-      --accent: #a66f5b;
+      --bg: #f2f9f8;
+      --text: #2f3e3e;
+      --section: #e8f3f1;
+      --accent: #5b9d94;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -82,11 +115,68 @@
       --accent: #e0b090;
     }
     [data-theme="light"] {
+      --bg: #f2f9f8;
+      --text: #2f3e3e;
+      --section: #e8f3f1;
+      --accent: #5b9d94;
+    }
+
+    /* Theme A: Rose */
+    [data-theme-set="rose"][data-theme="light"] {
       --bg: #fef9f5;
       --text: #3d3b38;
       --section: #fdf6f0;
       --accent: #a66f5b;
     }
+    [data-theme-set="rose"][data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #eee;
+      --section: #2a2a2a;
+      --accent: #e0b090;
+    }
+
+    /* Theme B: Teal */
+    [data-theme-set="teal"][data-theme="light"] {
+      --bg: #f2f9f8;
+      --text: #2f3e3e;
+      --section: #e8f3f1;
+      --accent: #5b9d94;
+    }
+    [data-theme-set="teal"][data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #e0f2f1;
+      --section: #2a2a2a;
+      --accent: #88cbc2;
+    }
+
+    /* Theme C: Lavender */
+    [data-theme-set="lavender"][data-theme="light"] {
+      --bg: #f9f7fc;
+      --text: #3b3752;
+      --section: #f0eef7;
+      --accent: #9377b6;
+    }
+    [data-theme-set="lavender"][data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #eae4f6;
+      --section: #2b2a33;
+      --accent: #c0a9e5;
+    }
+
+    /* Theme D: Mint */
+    [data-theme-set="mint"][data-theme="light"] {
+      --bg: #f4fbf8;
+      --text: #2f4039;
+      --section: #e7f4ef;
+      --accent: #6a9e88;
+    }
+    [data-theme-set="mint"][data-theme="dark"] {
+      --bg: #1d1f1f;
+      --text: #ddede6;
+      --section: #2a312f;
+      --accent: #a3c8b4;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -252,6 +342,7 @@
 </head>
 <body>
   <button class="theme-toggle-icon" onclick="toggleTheme()" id="theme-icon">🌙</button>
+  <button class="theme-set-icon" onclick="cycleThemeSet()" title="Switch theme palette" id="theme-set-icon">🎨</button>
   <button class="random-number-icon" onclick="generateNewNumber()" title="Fancy a random number?" id="random-icon">00</button>
 
   <header>
@@ -312,14 +403,14 @@
 
     <section id="research">
       <h2>Research Interests</h2>
-      <ul>
-        <li>High-dimensional statistics</li>
-        <li>Matrix estimation</li>
-        <li>Random matrix theory</li>
-        <li>Bayesian methods</li>
-        <li>Extreme value theory</li>
-        <li>Optimisation techniques</li>
-      </ul>
+      <div class="interest-container">
+        <span class="interest-box">High-dimensional statistics</span>
+        <span class="interest-box">Matrix estimation</span>
+        <span class="interest-box">Bayesian methods</span>
+        <span class="interest-box">Random matrix theory</span>
+        <span class="interest-box">Extreme value theory</span>
+        <span class="interest-box">Optimisation techniques</span>
+      </div>
     </section>
 
     <section id="awards">
@@ -371,9 +462,13 @@
   </footer>
 
   <script>
+    const themeSets = ["rose", "teal", "lavender", "mint"];
+    const pickedSet = themeSets[Math.floor(Math.random() * themeSets.length)];
+    document.documentElement.setAttribute("data-theme-set", pickedSet);
+
     const themeIcon = document.getElementById("theme-icon");
-    const darkIcons = ["🌞", "🍵", "✨"];
-    const lightIcons = ["🌙", "📘", "🌾"];
+    const darkIcons = ["🌞", "🕊️", "🌼", "📖", "☕", "🧺", "🪷", "🌤"];
+    const lightIcons = ["🌙", "✨", "🕯️", "🔭", "🌌", "🍷", "🌃", "💤"];
     const toggleTheme = () => {
       const current = document.documentElement.getAttribute("data-theme");
       const newTheme = current === "dark" ? "light" : "dark";
@@ -425,6 +520,20 @@
         icon.textContent = padded;
         icon.classList.remove("animate");
       }, 200);
+    }
+
+    // Theme set cycling functionality
+    function cycleThemeSet() {
+      const currentSet = document.documentElement.getAttribute("data-theme-set");
+      const currentIndex = themeSets.indexOf(currentSet);
+      const nextIndex = (currentIndex + 1) % themeSets.length;
+      const nextSet = themeSets[nextIndex];
+      document.documentElement.setAttribute("data-theme-set", nextSet);
+
+      const icon = document.getElementById("theme-set-icon");
+      icon.classList.remove("spin");
+      void icon.offsetWidth;
+      icon.classList.add("spin");
     }
 
     // Initialise on load
