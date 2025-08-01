@@ -17,8 +17,50 @@
   <meta property="og:image" content="https://roysreejit.github.io/profile.jpg">
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/png">
   <style>
+    .random-number-icon {
+      position: fixed;
+      top: 1rem;
+      right: 3.5rem;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent);
+      font-family: 'Roboto Mono', monospace;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .random-number-icon.animate {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .designer-note {
+      font-size: 0.9rem;
+      color: var(--text);
+      background-color: var(--section);
+      padding: 1.2rem;
+      margin-top: 2rem;
+      border-left: 4px solid var(--accent);
+      font-style: italic;
+      border-radius: 8px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
     :root {
       --bg: #fef9f5;
       --text: #3d3b38;
@@ -49,6 +91,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      transition: background-color 0.3s, color 0.3s;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -67,6 +110,19 @@
       border: none;
       cursor: pointer;
       color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle-icon.spin {
+      animation: spinIcon 0.6s ease;
+    }
+
+    @keyframes spinIcon {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
     .profile-pic {
       width: 100%;
@@ -82,8 +138,11 @@
       text-align: center;
       margin-bottom: 3rem;
     }
+    h1, h2 {
+      font-family: 'Roboto', sans-serif;
+    }
     h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 500;
       margin-bottom: 0.4rem;
     }
@@ -100,9 +159,20 @@
       text-decoration: none;
       color: var(--accent);
       font-weight: 500;
+      position: relative;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -3px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
     main {
       max-width: 720px;
@@ -116,7 +186,7 @@
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
     h2 {
-      font-size: 1.4rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
       margin-bottom: 1rem;
       color: var(--accent);
     }
@@ -182,36 +252,37 @@
 </head>
 <body>
   <button class="theme-toggle-icon" onclick="toggleTheme()" id="theme-icon">🌙</button>
+  <button class="random-number-icon" onclick="generateNewNumber()" title="Fancy a random number?" id="random-icon">00</button>
 
   <header>
     <img src="profile.jpg" alt="Sreejit Roy" class="profile-pic" />
-    <h1>Sreejit Roy</h1>
+    <h1 class="fade-up" title="Pronounced: /ʃriːdʒɪt/ (Sree-jit | সৃজিৎ)">Sreejit Roy</h1>
     <p class="subtitle">Ph.D. Student in Statistics, Iowa State University</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#awards">Awards</a>
+    <a href="#education">Education & Work</a>
+    <a href="#research">Research Interests</a>
+    <a href="#awards">Honours & Awards</a>
     <a href="#cv">CV</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <main>
     <section id="about">
-      <h2>About Me</h2>
+      <h2>About</h2>
       <p>
         I am a first-year Ph.D. student in Statistics at Iowa State University. I completed my M.Stat. from the Indian Statistical Institute and my B.Sc. in Statistics from St. Xavier’s College, Kolkata. My research focuses on high-dimensional statistics and related modern theoretical areas.
       </p>
     </section>
 
     <section id="education">
-      <h2>Education & Employment</h2>
+      <h2>Education & Work</h2>
       <div class="edu-entry">
         <div class="edu-left">
           <strong>Ph.D. in Statistics</strong><br>
-          Iowa State University, USA<br>
+          Iowa State University, Ames, IA<br>
           <em>Graduate Research Assistant</em>
         </div>
         <div class="edu-right">Aug 2025 – Present</div>
@@ -252,14 +323,14 @@
     </section>
 
     <section id="awards">
-      <h2>Awards</h2>
+      <h2>Honours & Awards</h2>
       <ul>
         <li><strong>Sabyasachi Roy Memorial Gold Medal</strong> — awarded for the best project work during M.Stat. at the Indian Statistical Institute, 2023.</li>
       </ul>
     </section>
 
     <section id="cv">
-      <h2>Curriculum Vitae</h2>
+      <h2>CV</h2>
       <p>You can download my CV here:</p>
       <p><a href="cv.pdf" target="_blank" rel="noopener noreferrer">📄 View CV (PDF)</a></p>
     </section>
@@ -272,6 +343,10 @@
         <a href="https://github.com/roysreejit" target="_blank">GitHub</a> |
         <a href="https://www.linkedin.com/in/roysreejit" target="_blank">LinkedIn</a>
       </p>
+      <div style="margin-top: 1.5rem; font-size: 0.9rem;">
+        🧠 Curious about something I’ve worked on?  
+        <br>Drop me a message — or send a good paper recommendation.
+      </div>
     </section>
 
     <section id="music">
@@ -284,32 +359,43 @@
               loading="lazy">
       </iframe>
     </section>
+    <section class="designer-note">
+      <p><strong>Designer’s Note:</strong><br>
+      This site is intended to evolve slowly with me. I’ve avoided templates in favour of something hand-built, imperfect, and changing. You’re reading version 0.25.8.1.</p>
+    </section>
   </main>
 
   <footer>
     &copy; 2025 roysreejit &nbsp;|&nbsp; Last updated: <span id="last-updated"></span>
+    <p style="margin-top: 2rem;">This page has now been viewed by 1 human (you), 1 🤖 (probably), and  exactly 0 🐈s.</p>
   </footer>
 
   <script>
     const themeIcon = document.getElementById("theme-icon");
+    const darkIcons = ["🌞", "🍵", "✨"];
+    const lightIcons = ["🌙", "📘", "🌾"];
     const toggleTheme = () => {
       const current = document.documentElement.getAttribute("data-theme");
-      if (current === "dark") {
-        document.documentElement.setAttribute("data-theme", "light");
-        localStorage.setItem("theme", "light");
-        themeIcon.textContent = "🌙";
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-        themeIcon.textContent = "🌞";
-      }
+      const newTheme = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      themeIcon.textContent = newTheme === "dark"
+        ? darkIcons[Math.floor(Math.random() * darkIcons.length)]
+        : lightIcons[Math.floor(Math.random() * lightIcons.length)];
+
+      // trigger spin animation
+      themeIcon.classList.remove("spin");
+      void themeIcon.offsetWidth; // force reflow
+      themeIcon.classList.add("spin");
     };
 
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
     document.documentElement.setAttribute("data-theme", initialTheme);
-    themeIcon.textContent = initialTheme === "dark" ? "🌞" : "🌙";
+    themeIcon.textContent = initialTheme === "dark"
+      ? darkIcons[Math.floor(Math.random() * darkIcons.length)]
+      : lightIcons[Math.floor(Math.random() * lightIcons.length)];
 
     // Email obfuscation
     const reversed = "ude.etatsai@tijeers";
@@ -322,6 +408,27 @@
     const options = { year: 'numeric', month: 'long' };
     document.getElementById("last-updated").textContent =
       updated.toLocaleDateString('en-US', options);
+
+    // Fade-up animation on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 100);
+      });
+    });
+    // Random number icon functionality
+    function generateNewNumber() {
+      const icon = document.getElementById("random-icon");
+      icon.classList.add("animate");
+      setTimeout(() => {
+        const number = Math.floor(Math.random() * 100);
+        const padded = number.toString().padStart(2, '0');
+        icon.textContent = padded;
+        icon.classList.remove("animate");
+      }, 200);
+    }
+
+    // Initialise on load
+    generateNewNumber();
   </script>
 </body>
 </html>
