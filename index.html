@@ -533,6 +533,7 @@
       const nextIndex = (currentIndex + 1) % themeSets.length;
       const nextSet = themeSets[nextIndex];
       document.documentElement.setAttribute("data-theme-set", nextSet);
+      localStorage.setItem("themeSet", nextSet);
 
       const icon = document.getElementById("theme-set-icon");
       icon.classList.remove("spin");
