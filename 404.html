@@ -1,19 +1,54 @@
-<script>
-  const savedTheme = localStorage.getItem("theme");
-  const savedSet = localStorage.getItem("themeSet");
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 — You’ve wandered too far</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      padding: 4rem 1rem;
+      line-height: 1.6;
+      background-color: var(--bg, #fafafa);
+      color: var(--text, #222);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent, #5b9d94);
+    }
+    a {
+      color: var(--accent, #5b9d94);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+    a:hover {
+      opacity: 0.8;
+    }
+  </style>
 
-  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-  const initialSet = savedSet || "rose";
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    const savedSet = localStorage.getItem("themeSet");
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  document.documentElement.setAttribute("data-theme", initialTheme);
-  document.documentElement.setAttribute("data-theme-set", initialSet);
+    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+    const initialSet = savedSet || "rose";
 
-  // Ensure updated values are written to localStorage if not present
-  if (!savedTheme) {
-    localStorage.setItem("theme", initialTheme);
-  }
-  if (!savedSet) {
-    localStorage.setItem("themeSet", initialSet);
-  }
-</script>
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    document.documentElement.setAttribute("data-theme-set", initialSet);
+
+    // Ensure updated values are written to localStorage if not present
+    if (!savedTheme) localStorage.setItem("theme", initialTheme);
+    if (!savedSet) localStorage.setItem("themeSet", initialSet);
+  </script>
+</head>
+<body>
+  <h1>404 — You’ve wandered too far 🚀</h1>
+  <p>The page you’re looking for doesn’t exist.</p>
+  <p><a href="/">Return home</a></p>
+</body>
+</html>
