@@ -3,54 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 — You’ve wandered too far</title>
-  <meta name="robots" content="noindex">
-
-  <!-- Link to your main site's CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <script>
-    const savedTheme = localStorage.getItem("theme");
-    const savedSet = localStorage.getItem("themeSet");
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
-    const initialSet = savedSet || "rose";
-
-    document.documentElement.setAttribute("data-theme", initialTheme);
-    document.documentElement.setAttribute("data-theme-set", initialSet);
-
-    // Ensure updated values are written to localStorage if not present
-    if (!savedTheme) localStorage.setItem("theme", initialTheme);
-    if (!savedSet) localStorage.setItem("themeSet", initialSet);
-  </script>
-
+  <title>Page Not Found | Sreejit Roy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      text-align: center;
-      font-family: 'Roboto', sans-serif;
-      padding: 4rem 1rem;
-      color: var(--text);
-      background-color: var(--bg);
-      transition: background-color 0.3s, color 0.3s;
-    }
-    h1 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-    }
-    a:hover {
-      opacity: 0.8;
-    }
+:root {
+  --bg: #fef9f5;
+  --text: #3d3b38;
+  --accent: #a66f5b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e1e;
+    --text: #eee;
+    --accent: #e0b090;
+  }
+}
+[data-theme-set="teal"][data-theme="light"] {
+  --bg: #f2f9f8;
+  --text: #2f3e3e;
+  --accent: #5b9d94;
+}
+[data-theme-set="teal"][data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #e0f2f1;
+  --accent: #88cbc2;
+}
+[data-theme-set="lavender"][data-theme="light"] {
+  --bg: #f9f7fc;
+  --text: #3b3752;
+  --accent: #9377b6;
+}
+[data-theme-set="lavender"][data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #eae4f6;
+  --accent: #c0a9e5;
+}
+[data-theme-set="mint"][data-theme="light"] {
+  --bg: #f4fbf8;
+  --text: #2f4039;
+  --accent: #6a9e88;
+}
+[data-theme-set="mint"][data-theme="dark"] {
+  --bg: #1d1f1f;
+  --text: #ddede6;
+  --accent: #a3c8b4;
+}
+[data-theme-set="rose"][data-theme="light"] {
+  --bg: #fef9f5;
+  --text: #3d3b38;
+  --accent: #a66f5b;
+}
+[data-theme-set="rose"][data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --accent: #e0b090;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
-  <h1>404 — You’ve wandered too far 🚀</h1>
-  <p>The page you’re looking for doesn’t exist.</p>
-  <p><a href="/">Return home</a></p>
+  <h1>404</h1>
+  <p>You’ve wandered off the trail. This page doesn’t exist.</p>
+  <a href="/">← Back to homepage</a>
 </body>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+  const savedSet = localStorage.getItem("themeSet");
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
+  const initialSet = savedSet || "rose";
+
+  document.documentElement.setAttribute("data-theme", initialTheme);
+  document.documentElement.setAttribute("data-theme-set", initialSet);
+</script>
 </html>
